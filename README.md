@@ -1,5 +1,7 @@
 ## vue-auto-list
 
+use for vue2
+
 [react-auto-list](https://www.npmjs.com/package/wang-rc-virtual-list)
 
 ![demo](./assets/demo.gif)
