@@ -32,6 +32,7 @@
 
 <script>
 import { throttle, findStartByIndex } from "./utils/utils";
+import { resizeCb } from "./utils/resizeObverser";
 import Bar from "./com/Bar.vue";
 export default {
   props: {
@@ -78,22 +79,27 @@ export default {
     };
   },
   mounted() {
-    this.$refs.listEl.addEventListener(
+    this.$refs.listEl?.addEventListener(
       "scroll",
       throttle((e) => {
         this.handleScroll(e);
       })
     );
     this.headerHeight = this.$refs.header.clientHeight;
+    this.resizeDom = resizeCb(this.resizeCb);
+    this.resizeDom.observe(this.$refs.containerEl);
     this.autoSizeVirtualList();
   },
   destroyed() {
-    this.$refs.listEl.removeEventListener(
+    this.$refs.listEl?.removeEventListener(
       "scroll",
       throttle((e) => {
         this.handleScroll(e);
       })
     );
+    if (this.resizeDom && this.$refs.containerEl) {
+      this.resizeDom.unobserve(this.$refs.containerEl);
+    }
   },
   computed: {
     viewCnt() {
@@ -107,6 +113,9 @@ export default {
     },
   },
   methods: {
+    resizeCb() {
+      this.updateCells();
+    },
     handleScroll(e) {
       this.barCnt = this.barCnt + 1;
       this.$emit("handleScroll", e);

@@ -88,13 +88,13 @@ export default {
     },
     removeEvent() {
       document.removeEventListener("mouseup", this.dealMouseUp);
-      this.$refs.barEl.removeEventListener("mouseup", this.dealMouseUp);
+      this.$refs.barEl?.removeEventListener("mouseup", this.dealMouseUp);
 
       document.removeEventListener("mousemove", this.dealMouseMove);
     },
     addEvent() {
       document.addEventListener("mouseup", this.dealMouseUp);
-      this.$refs.barEl.addEventListener("mouseup", this.dealMouseUp);
+      this.$refs.barEl?.addEventListener("mouseup", this.dealMouseUp);
 
       document.addEventListener("mousemove", this.dealMouseMove);
     },

@@ -73,7 +73,7 @@ export default {
     };
   },
   mounted() {
-    this.$refs.containerEl.addEventListener(
+    this.$refs.containerEl?.addEventListener(
       "scroll",
       throttle((e) => {
         this.handleScroll(e);
@@ -83,7 +83,7 @@ export default {
     this.headerHeight = this.$refs.header.clientHeight;
   },
   destroyed() {
-    this.$refs.containerEl.removeEventListener(
+    this.$refs.containerEl?.removeEventListener(
       "scroll",
       throttle((e) => {
         this.handleScroll(e);
