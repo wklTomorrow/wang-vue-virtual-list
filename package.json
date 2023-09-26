@@ -1,6 +1,6 @@
 {
   "name": "wang-vue-virtual-list",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "vue auto list",
   "main": "dist/index.js",
   "type": "module",

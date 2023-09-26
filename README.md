@@ -105,4 +105,16 @@ just use footer
 </RevertAutoSizeVirtualList>
 ```
 
+## APIS
+
+| Prop           | Description        | Type        | Default |
+| -------------- | ------------------ | ----------- | ------- |
+| list           | Data list          | Array<T>    | -       |
+| height         | list height        | number      | 400     |
+| itemHeight     | list item height   | number      | 40      |
+| minSize        | show cnt           | number      | 20      |
+| itemKey        | item keys          | key in T    | -       |
+| scrollToTop    | go to top          | number      | 0       |
+| scrollToBottom | scrolled to bottom | (e) => void | -       |
+
 you can see example demo
